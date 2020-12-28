@@ -1,0 +1,48 @@
+﻿Angular advance course by maximillan
+
+    • Angular is a framework which allows you to create reactive, single page applications. This sounds great, butwhat exactly does it mean?
+
+A Single Page Application (SPA) is an application like the one shown here
+
+
+
+
+the project we're going to build throughout the course. You can navigate around and in the URL,you can see that we seem to visit different pages,but in the end, our page never changes.It's only one HTML file and a bunch of JavaScript code we got from the server and everything which you see here, every change, is rendered in the browser.
+
+
+
+
+
+
+
+
+
+Now, why is that awesome?It gives the user a very reactive user experience (UX).JavaScript is much faster than having to reach out to a server for every page change and for every newpiece of data you want to display. Therefore, this approach allows you to create web applications which look and feel almost like mobile applications. very fast!Everything happens instantly.If you do need some data from a server, you simply load it in the background so that the user never leaves this experience of having a reactive web application to use.So every click I do here simply changes this one single page we're using.
+
+      
+    • this one HTML page.So, how is this done?
+
+Well, JavaScript changes the DOM, changes whatever is displayed here (in the browser), by changing the HTML code during runtime(so to say). That is why you never see the refresh icon on the top-left spin. because we're only changing the currently-loaded page. 
+
+
+
+You can even see that if you inspect the source code of a page like this.That is the HTML file and as you can see, it doesn't seem to contain the content you are seeing on this page.We only have one single HTML element which doesn't seem to be a built-in one (a native one), but that's Angular doing its job.Throughout the course, you're going to learn exactly what happens here and how Angular does this job.
+
+Confusing Versioning in Angular
+
+
+Now one thing that can be confusing when you're getting started with angular is the amount of angular versions you find out there.Now in this lecture we'll have a look at the different versions how they are connected.If that means that angular changes all the time.Spoiler It does not.
+
+So we had angular one.It was released a couple of years ago( October 20, 2010; 10 years ago) and angular one was a big new thing back then.Now this course is not about angular one though because while said was the big new thing it also had some issues that could lead to worse performance and bigger applications ends on this question of angular angular one is nowadays referred to as angular J.S. written like this.So if you see people right angle or J.S. in some Internet forum on Reddit or anything like that they are most likely referring to angular one which is totally different to the Angular word tht you're learning about because there was a complete rewrite of the angular framework between angular one and angular two angular 2 was released in two thousand and sixteen and it was rewritten from the groundup.It works totally different than angular one to fix all the issues angular one had now since that initial resolve of angular two we had a couple of other versions of angular with angular four angular 3 was skipped for internal reasons . we had angular five six seven and now we have angular nine.
+
+Why do we have all these angular weird numbers does it mean that angular was reinvented eight times since angular one ? No this is not the case instead since the release of angular to the angle or a team simply address to versioning scheme where a new word of angular is released every six months now that new version however is not a complete rewrite it does not change everything.Indeed most updates change almost nothing only some behind the scenes stuff or add some new features without breaking existing features.Indeed angular 9 is pretty much the same as angular 2 initially created .This course for angular  and I updated it multiple times and it is totally up todate day  but when we have a look at the core syntax at the philosophy ends on nothing changed since angular 2 .Indeed if you learned angular  in syntax.Some minor things changed and I updated the course over to time to reflect that but overall it's the same framework.We have small incremental backwards compatible changes between these versions.It's simply just a commitment which the angular team made to release such a major new version every six months.It does not break or change everything every time it's released .
+
+
+
+
+
+
+
+
+
+
