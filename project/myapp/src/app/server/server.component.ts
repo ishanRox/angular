@@ -8,6 +8,10 @@ import { Component } from "@angular/core";
     }
 )
 export class ServerComponent {
-    serverId: number = 10;
+    serverId: number = Math.random();
     serverStatus: string = "offline";
+
+    getServerStatus() {
+        return this.serverStatus + " of this server checked by a method and -";
+    }
 }
