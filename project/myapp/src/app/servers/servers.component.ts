@@ -7,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
 
 })
 export class ServersComponent implements OnInit {
+  allowNewServer = false;
+  serverName: string = "not available Now";
+  currentServerName = '';
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
+  onAddServer() {
+    this.serverName = "Server started and running !";
+  }
+  onUpdateServerName(event: Event) {
+    this.currentServerName = (<HTMLInputElement>event.target).value;
+  }
 }
