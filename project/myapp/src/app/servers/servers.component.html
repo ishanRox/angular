@@ -1,14 +1,28 @@
 <p>servers works!</p>
-<input type="text" class="form-control" (input)="onUpdateServerName($event)" />
-<button
-  class="btn btn-primary"
-  [disabled]="allowNewServer"
-  (click)="onAddServer()"
->
-  Add server {{ currentServerName }}
-</button>
+<div style="border: 1px solid; margin-left: 100px">
+  <h5>Difference between the event binding and the twoWay data binding</h5>
+  <h4>event binding</h4>
+  <input
+    type="text"
+    class="form-control"
+    (input)="onUpdateServerName($event)"
+  />
+  <br />
+  <br />
+  <h4>2 way data bind</h4>
+  <input type="text" class="form-control" [(ngModel)]="currentServerName" />
+
+  <button
+    class="btn btn-primary"
+    [disabled]="allowNewServer"
+    (click)="onAddServer()"
+  >
+    Add server {{ currentServerName }}
+  </button>
+</div>
+
 <br />
 <br />
-<div class="alert alert-success">{{ serverName }}</div>
+<div class="alert alert-success">{{ currentServerName }} {{ serverName }}</div>
 <app-server></app-server>
 <app-server></app-server>
