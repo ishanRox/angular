@@ -23,6 +23,14 @@
 
 <br />
 <br />
-<div class="alert alert-success">{{ currentServerName }} {{ serverName }}</div>
+<!-- <div class="alert alert-success">{{ currentServerName }} {{ serverName }}</div> -->
+<div *ngIf="serverCreated; else noServerMarker" class="alert alert-success">
+  Server was created server name is {{ currentServerName }}
+</div>
+
+<ng-template #noServerMarker>
+  <h1>Still no server is created !</h1>
+  <hr />
+</ng-template>
 <app-server></app-server>
 <app-server></app-server>
