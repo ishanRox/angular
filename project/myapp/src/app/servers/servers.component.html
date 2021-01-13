@@ -1,0 +1,52 @@
+<p>servers works!</p>
+<div style="border: 1px solid; margin-left: 100px">
+  <h5>Difference between the event binding and the twoWay data binding</h5>
+  <h4>event binding</h4>
+  <input
+    type="text"
+    class="form-control"
+    (input)="onUpdateServerName($event)"
+  />
+  <br />
+  <br />
+  <h4>2 way data bind</h4>
+  <input type="text" class="form-control" [(ngModel)]="currentServerName" />
+
+  <button
+    class="btn btn-primary"
+    [disabled]="allowNewServer"
+    (click)="onAddServer()"
+  >
+    Add server {{ currentServerName }}
+  </button>
+</div>
+
+<br />
+<br />
+<!-- <div class="alert alert-success">{{ currentServerName }} {{ serverName }}</div> -->
+<div *ngIf="serverCreated; else noServerMarker" class="alert alert-success">
+  Server was created server name is {{ currentServerName }}
+</div>
+
+<ng-template #noServerMarker>
+  <h1>Still no server is created !</h1>
+  <hr />
+</ng-template>
+
+<button style="margin-left: 50px" class="btn-primary" (click)="onToggleFlag()">
+  Display details
+</button>
+
+<p *ngIf="toggleFlag">secret password - hellobinuuu</p>
+<!-- <app-server *ngFor="let val of servers"></app-server> -->
+<h1
+  *ngFor="let items of counterArray; let i = index"
+  [ngStyle]="{
+    backgroundColor: i > 3 ? 'red' : 'white'
+  }"
+  [ngClass]="{
+    'white-text': i > 3
+  }"
+>
+  {{ items }}
+</h1>
