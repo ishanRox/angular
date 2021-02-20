@@ -26,7 +26,10 @@ export class AppComponent {
   }
 
   onChangeFirst(){
-   
     this.serverElements[0].name='changed'+Math.random();
+  }
+
+  destroyElement(){
+    this.serverElements.splice(0,1);
   }
 }

@@ -9,6 +9,7 @@
       <button class="btn btn-primary" (click)="onChangeFirst()">
         Change the name
       </button>
+      <button class="btn btn-danger" (click)="destroyElement()"> Destroy</button>
       <app-server-element
         *ngFor="let serverElement of serverElements"
         [ishanElement]="serverElement"
