@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'recipe-app';
-selectedItemName:string='';
+selectedItemName:string='Recipes';
 
 onSelected(selectedItem: string){
 console.log(selectedItem);
