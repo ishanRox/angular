@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,8 +6,9 @@ import { Component, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./app.component.css'],
   encapsulation:ViewEncapsulation.None
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit{
   serverElements = [{type:'server',name:'IshanTestServer',content:'just a test'}];
+ @ViewChild('contentParagraph')child:ElementRef;
  
   onServerAdded(serverData:{serverName:string,serverContent:string}) {
     this.serverElements.push({
@@ -31,5 +32,12 @@ export class AppComponent {
 
   destroyElement(){
     this.serverElements.splice(0,1);
+  }
+
+  ngAfterViewInit(){
+    console.log('sdffffffffffff');
+    
+    console.log(this.child.nativeElement.textContent+" acces from app component");
+    
   }
 }

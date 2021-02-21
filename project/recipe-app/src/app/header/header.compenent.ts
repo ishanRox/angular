@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+
 
 @Component({
     selector: 'app-header',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
 
 })
 export class HeaderComponent {
-
+    @Output() selectedItem = new EventEmitter<string>();
+   
+    getSelectedItem(selectedItem:HTMLInputElement) {
+        console.log(selectedItem.textContent);
+        
+        this.selectedItem.emit(selectedItem.textContent);
+    }
 }
