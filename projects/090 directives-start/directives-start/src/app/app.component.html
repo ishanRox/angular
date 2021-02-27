@@ -24,10 +24,21 @@
       </ul>
 
       <p appBasicHighlight>appBasicHighlight</p>
-      <p  [defaultColor]="'yellow' " appBetterHighlight="maroon">appBetterHighlighter</p>
+      <p [defaultColor]="'yellow'" appBetterHighlight="maroon">
+        appBetterHighlighter
+      </p>
       <!-- <ng-template [ngIf]="onlyOdd">
         <p appBasicHighlight>Only odd</p>
       </ng-template> -->
+      <p *appUnless="false">only show when false</p>
+      <p *appUnless="true">only show when false</p>
+    </div>
+    <hr />
+    <div [ngSwitch]="">
+      <p *ngSwitchCase="1">value is 1</p>
+      <p *ngSwitchCase="2">value is 2</p>
+      <p *ngSwitchCase="3">value is 3</p>
+      <p *ngSwitchDefault>Default value is 4</p>
     </div>
   </div>
 </div>
