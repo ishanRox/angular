@@ -6,7 +6,7 @@ import { Directive, ElementRef, HostBinding, HostListener, Input, OnInit, Render
 export class BetterHighlightDirective implements OnInit {
   //To make parent be able to access these values
   @Input() defaultColor: string = 'transparent';
-  @Input() highlightColor: string = 'blue';
+  @Input("appBetterHighlight") highlightColor: string = 'blue';
   //we say to angular get the style property and then from that get the backgroundColor sub property
   //and we can easily manipulate that property
   @HostBinding('style.backgroundColor') backgroundColor: string = 'transparent';
