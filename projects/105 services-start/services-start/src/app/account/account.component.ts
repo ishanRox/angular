@@ -6,7 +6,7 @@ import { LogggingService } from '../login.service';
   selector: 'app-account',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.css'],
-  providers: [LogggingService]
+  // providers: [LogggingService]
 })
 export class AccountComponent {
   //we still need input because we still reciving data from outside
@@ -20,7 +20,8 @@ export class AccountComponent {
   onSetTo(status: string) {
     // this.statusChanged.emit({ id: this.id, newStatus: status });
     this.accountService.updateStatus(this.id, status);
-    this.loggingService.logStatusChange(status);
+    this.accountService.statusUpdated.emit(status);
+    // this.loggingService.logStatusChange(status);
     // console.log('A server status changed, new status: ' + status);
   }
 }
