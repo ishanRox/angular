@@ -19,6 +19,11 @@ export class ShopplingListService {
     this.ingredients.push(ingredient);
     //kawruhari me method eka call kaloth event ekak emit karanawa
     //ingredientAdded eventemmiter ekata subscribe karan inna kenata meka ahenawa
-    this.ingredientAdded.emit(this.ingredients);
+    this.ingredientAdded.emit(this.ingredients.slice());
+  }
+
+  addIngredientsArray(ingredientsArray: Ingredient[]) {
+    this.ingredients.push(...ingredientsArray);
+    this.ingredientAdded.emit(this.ingredients.slice());
   }
 }
