@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { ServersService } from '../servers.service';
 
@@ -8,12 +9,26 @@ import { ServersService } from '../servers.service';
   styleUrls: ['./server.component.css']
 })
 export class ServerComponent implements OnInit {
-  server: {id: number, name: string, status: string};
-
-  constructor(private serversService: ServersService) { }
+  server: { id: number, name: string, status: string };
+  //allow edit param
+  constructor(private router: Router, private serversService: ServersService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.server = this.serversService.getServer(1);
+    // this.server = this.serversService.getServer(1);
+    const id = +this.route.snapshot.params['id'];
+    console.log(id);
+
+    this.server = this.serversService.getServer(id);
+    this.route.params.subscribe((params: Params) => {
+      this.server = this.serversService.getServer(+params['id']);
+    });
   }
 
+  onEdit() {
+    // this.router.navigate(['/servers',this.server.id,'edit']);
+    //but we can use relative route because we are in a child component
+    //and we preserve queryParams which override the default behavior
+    this.router.navigate(['edit'], { relativeTo: this.route, queryParamsHandling: 'preserve' });
+
+  }
 }
