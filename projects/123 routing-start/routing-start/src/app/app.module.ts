@@ -14,6 +14,9 @@ import { ServersService } from './servers/servers.service';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthService } from './auth.service';
+import { CanDeactivatedGuard } from './servers/edit-server/can-deactivate-guard-service';
+import { AuthGuard } from './auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,7 @@ import { AppRoutingModule } from './app-routing.module';
     // RouterModule.forRoot(appRoutes)
     AppRoutingModule
   ],
-  providers: [ServersService],
+  providers: [ServersService,AuthService,AuthGuard,CanDeactivatedGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
