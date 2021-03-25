@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -19,8 +20,9 @@ export class AppComponent {
       'userData': new FormGroup({
         //added custome validatior
         'username': new FormControl(null, [Validators.required, this.forbiddenNames.bind(this)]),
-        //Array of validators
-        'email': new FormControl(null, [Validators.required, Validators.email])
+        //Array of validators 3rd argument is async validator array  or one validator if you need this in 
+        //forbiddenEmail method just bind it 
+        'email': new FormControl(null, [Validators.required, Validators.email], this.forbiddenEmails)
       }),
       'gender': new FormControl('male'),
       'hobbies': new FormArray([])
@@ -37,6 +39,20 @@ export class AppComponent {
 
   }
 
+  forbiddenEmails(control: FormControl): Promise<any> | Observable<any> {
+    const promise = new Promise<any>((resolve, reject) => {
+      setTimeout(() => {
+        if (control.value === 'test@test.com') {
+          resolve({ 'emailIsForbidden': true });
+        } else {
+          resolve(null);
+        }
+      }, 1500);
+    });
+
+    return promise;
+
+  }
 
   onAddHobby() {
     const control = new FormControl(null, Validators.required);
